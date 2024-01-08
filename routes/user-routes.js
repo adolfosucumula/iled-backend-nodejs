@@ -13,13 +13,13 @@ router.post('/signup', (request, response) => {
                     [user.name,user.phone_number,user.email,user.password,user.status,user.role],
                     (err, results)=> {
                         if(!err){
-                            return response.status(200).json(message, "Successfully registered!");
+                            return response.status(200).json({'message': 'Successfully registered!', 'status':201});
                         }else{
                             return response.status(500).json(err);
                         }
                     })
             }else{
-                return response.status(400).json(message, "Email allready exist.");
+                return response.status(400).json({'message': 'Email allready exist.', 'status': 200});
             }
         }
         else{
