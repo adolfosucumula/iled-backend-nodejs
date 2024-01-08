@@ -3,6 +3,7 @@ const connection = require('../../../connection');
 const router = express.Router();
 
 const jwt = require('jsonwebtoken'); //Library to generate the JWT Token
+const nodeMailer = require('nodemailer'); 
 require('dotenv').config();
 
 router.post('/login', (request, response) => {
@@ -31,5 +32,14 @@ router.post('/login', (request, response) => {
 
 
 });
+
+var transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
+    }
+
+})
 
 module.exports = router;
