@@ -4,11 +4,11 @@ const router = express.Router();
 
 router.post('/signup', (request, response) => {
     let user = request.body;
-    query = "SELECT * FROM user WHERE email =?";
+    query = "SELECT * FROM _USER WHERE email =?";
     connection.query(query, [user.email], (err, results)=> {
         if(!err){
             if(results.length <=0){
-                query = "INSERT INTO user (name, phone_number, email, password, status, role) VALUES (?,?,?,?,'false','USER');";
+                query = "INSERT INTO _USER (name, phone_number, email, password, status, role) VALUES (?,?,?,?,'false','USER');";
                 connection.query(query, 
                     [user.name,user.phone_number,user.email,user.password,user.status,user.role],
                     (err, results)=> {

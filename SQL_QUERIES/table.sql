@@ -1,4 +1,4 @@
-create table user(
+create table _USER(
     id int primary key AUTO_INCREMENT,
     name varchar(250),
     phone_number varchar(50),

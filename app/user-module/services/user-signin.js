@@ -8,7 +8,7 @@ require('dotenv').config();
 
 router.post('/login', (request, response) => {
     let user = request.body;
-    query = "SELECT * FROM user WHERE email =?";
+    query = "SELECT * FROM _USER WHERE email =?";
     connection.query(query, [user.email], (err, results) => {
         if (!err) {
             if (results.length <= 0 || results[0].password != user.password) {

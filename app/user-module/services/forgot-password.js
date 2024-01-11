@@ -43,7 +43,7 @@ var transporter = nodeMailer.createTransport({
 
 router.post('/reset-password', (request, response) => {
     const user = request.body;
-    query = "SELECT * FROM user WHERE email =?";
+    query = "SELECT * FROM _USER WHERE email =?";
     connection.query(query, [user.email], (err, results) => {
         if(!err){
             if(results.length <= 0){
