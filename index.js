@@ -11,5 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/user', [signupRoute, signinRoute, resetPasswordRoute]);
 //app.use('/user', signinRoute);
+app.all('*', (require, response) => {
+    console.log("Requested URL not found! Error 404.")
+})
 
 module.exports = app;
